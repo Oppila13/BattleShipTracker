@@ -3,11 +3,12 @@ Simple implementation of BattleShip Game (10X10). As mentioned in the question o
 
 The endpoints are publicly avaialble to test the code. Different unit test cases are added in BattleShipTracker.Test folder. 
 
-Public Endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com
+Public Endpoint URL: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com
 
 #### The code has two APIs
  * ### api/add
-     * Public url: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/add
+     * Method: POST
+     * Public api endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/add
      * Description:
          * Adds one or more battleship(s) to the board.
      * Input Values:
@@ -17,6 +18,7 @@ Public Endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk
           * Orientation - The orientation of the ship can be either horizontal or vertical.(Accepted values 'horizontal' or 'vertical')
       *  Sample input:
            * Add Content-Type: application/json in the header
+           * Add the following in body
            ```sh
            [{"row":"2","column":"0","length":"1","orientation":"vertical"},{"row":"5","column":"5","length":"3","orientation":"horizontal"}]
            ```
@@ -30,7 +32,8 @@ Public Endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk
              * Invalid ship placement data. 
                  
  * ### api/attack
-     * Public url: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/attack
+     * Method: POST
+     * Public api endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/attack
      *  Description:
           * Attacks the given cell in the board
      *  Input Values:
@@ -38,6 +41,7 @@ Public Endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk
           * Column - Column value to attack.(Accepted values 0 - 9)
       *  Sample input:
           * Add Content-Type: application/json in the header
+          * Add the following in body
          ```sh
          {"row":"2","column":"2"}
          ```

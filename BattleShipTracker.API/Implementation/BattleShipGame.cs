@@ -60,7 +60,7 @@ namespace BattleShipTracker.API.Implementation
             {
                 return "miss";
             }
-            board[row, column] = -1;
+            board[row, column] = 0;
             return "hit";
         }
     }

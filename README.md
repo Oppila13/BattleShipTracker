@@ -1,13 +1,13 @@
 # BattleShipTracker
 Simple implementation of BattleShip Game (10X10). As mentioned in the question only add and attack are implemented. In attack, 'hit' or 'miss' logic are present. The code is dynamic and 'sunk' logic can be added easily to /attack api and the code for /add is implemented having three possiblities in mind 'hit', 'miss' and 'sunk'. 
 
-The code is deployed in AWS ECS Fargate. Docker file is present in BattleShipTracker.API folder. The endpoints are publicly avaialble to test the code. Different unit test cases are added in BattleShipTracker.Test folder. 
+The endpoints are publicly avaialble to test the code. Different unit test cases are added in BattleShipTracker.Test folder. 
 
-Public Endpoint: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com
+Public Endpoint: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com
 
 #### The code has two APIs
  * ### api/add
-     * Public url: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com/api/add
+     * Public url: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/add
      * Description:
          * Adds one or more battleship(s) to the board.
      * Input Values:
@@ -30,7 +30,7 @@ Public Endpoint: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.a
              * Invalid ship placement data. 
                  
  * ### api/attack
-     * Public url: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com/api/attack
+     * Public url: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeanstalk.com/api/attack
      *  Description:
           * Attacks the given cell in the board
      *  Input Values:

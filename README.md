@@ -1,18 +1,26 @@
 # BattleShipTracker
-Simple implementation of BattleShip Game
+Simple implementation of BattleShip Game (10X10). As mentioned in the question only add and attack are implemented. In attack, 'hit' or 'miss' logic are present. The code is dynamic and 'sunk' logic can be added easily to /attack api and the code for /add is implemented having three possiblities in mind 'hit', 'miss' and 'sunk'. 
 
-The code has two APIs
- * api/add
-     * Description: Adds one or more battleship(s) to the board.
+The code is deployed in AWS ECS Fargate. Docker file is present in BattleShipTracker.API folder. The endpoints are publicly avaialble to test the code. Different unit test cases are added in BattleShipTracker.Test folder. 
+
+Public Endpoint: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com
+
+#### The code has two APIs
+ * ### api/add
+     * Public url: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com/api/add
+     * Description:
+         * Adds one or more battleship(s) to the board.
      * Input Values:
-          * Row - Ship's starting row value
-          * Column - Ship's starting column value
-          * Length - Number of cells the ship is going to occupy
-          * Orientation - The orientation of the ship can be either horizontal or vertical
-      * Sample input:
-          *  [{"row":"2","column":"0","length":"5","orientation":"vertical"},{"row":"5","column":"5","length":"3","orientation":"horizontal"}]
-      * Output: Output can either be 200 or 400 with corresponding messages
-      * Output messages:
+          * Row - Ship's starting row value.(Accepted values 0 - 9)
+          * Column - Ship's starting column value.(Accepted values 0 - 9)
+          * Length - Number of cells the ship is going to occupy.(Accepted values 0 - 9 and Row+Length or Column+Length is not greater than 10)
+          * Orientation - The orientation of the ship can be either horizontal or vertical.(Accepted values 'horizontal' or 'vertical')
+      *  Sample input:
+           * Add Content-Type: application/json in the header
+           ```sh
+           [{"row":"2","column":"0","length":"1","orientation":"vertical"},{"row":"5","column":"5","length":"3","orientation":"horizontal"}]
+           ```
+      *  Output messages:
            * 200:
              * Ship Placed
            * 400:
@@ -21,28 +29,22 @@ The code has two APIs
              * Invalid orientation
              * Invalid ship placement data. 
                  
- * api/attack
-     * Description: Attacks the given cell in the board
-     * Input Values:
-          * Row - Row value to attack
-          * Column - Column value to attack
-      * Sample input:
-           * {"row":"2","column":"2"}
-      * Output can either be 'hit' or 'miss' or 'Invalid attack data'.
+ * ### api/attack
+     * Public url: http://battl-recip-17leibatifef9-245414041.ap-southeast-2.elb.amazonaws.com/api/attack
+     *  Description:
+          * Attacks the given cell in the board
+     *  Input Values:
+          * Row - Row value to attack.(Accepted values 0 - 9)
+          * Column - Column value to attack.(Accepted values 0 - 9)
+      *  Sample input:
+          * Add Content-Type: application/json in the header
+         ```sh
+         {"row":"2","column":"2"}
+         ```
+      *  Output can either be 'hit' or 'miss' or 'Invalid attack data'.
 
 
-Project Folder Structure:
 
-    * BattleShipTracker.API
-      * Controllers
-      * Constants
-      * Implementation
-      * Interface
-      * Models
-      * Program and startup file
-    * BattleShipTracker.Test
-      * Test file
-     
 
 
 

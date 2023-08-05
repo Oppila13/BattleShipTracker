@@ -14,7 +14,7 @@ Public Endpoint URL: http://battleshiptrackerapi-dev.ap-southeast-2.elasticbeans
      * Input Values:
           * Row - Ship's starting row value.(Accepted values 0 - 9)
           * Column - Ship's starting column value.(Accepted values 0 - 9)
-          * Length - Number of cells the ship is going to occupy.(Accepted values 0 - 9 and Row+Length or Column+Length is not greater than 10)
+          * Length - Number of cells the ship is going to occupy.(Accepted values 0 - 9 and Row+Length or Column+Length is not greater than or equal to 10)
           * Orientation - The orientation of the ship can be either horizontal or vertical.(Accepted values 'horizontal' or 'vertical')
       *  Sample input:
            * Add Content-Type: application/json in the header
